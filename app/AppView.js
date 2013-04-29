@@ -2,7 +2,8 @@ var AppView = Backbone.View.extend({
 	events: {
 		'click #byName':'sortByName',
 		'click #byBirthday':'sortByBirthday',
-		'keyup #filtrer':'filtrer'
+		'click #stats':'stats',
+		'keyup #filtrer':'filtrer',
 	},
 	initialize: function(friends) {
 		this.collection.on('reset',this.render,this);
@@ -13,6 +14,9 @@ var AppView = Backbone.View.extend({
 	},
 	sortByBirthday: function() {
 		this.collection.sortByBirthday();
+	},
+	stats: function() {
+		this.collection.stats();
 	},
 	filtrer: function(e) {
 		this.collection.filtrer(e.currentTarget.value);
