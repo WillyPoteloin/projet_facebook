@@ -18,43 +18,37 @@ FbApp.Friends = Backbone.Collection.extend({
 	contains : function(obj, value) {
 		
 		// on remet tous les tableau à plat
-		var valeurs = _.flatten(obj);
-		
 		// on élimine les valeurs null false 0 ''
-		valeurs = _.compact(valeurs);
+		var valeurs = _.compact(_.flatten(obj));
+		
 		// on boucle sur les valeurs de l'objet afin de les tester
-		for(i=0; i<valeurs.length;i++) {
+		for(var i=0; i<valeurs.length;i++) {
 			
-			if (_.isString(valeurs[i])) {
+			if (_.isString(valeurs[i]) && valeurs[i].toLowerCase().indexOf(value.toLowerCase()) != -1) {
 				// si value est trouvé dans un des champs de l'ami on retourne true et on met fin à la boucle
-				if(valeurs[i].toLowerCase().indexOf(value.toLowerCase()) != -1) {
-					return true;
-				}
-				
+				return true;
 			}
+
 			// est-ce que c'est un objet ?
-			if (_.isObject(valeurs[i])) {
-				// on élimine les clé id qui ne nous intéresse pas pour le filtre
-				valeurs[i] = _.omit(valeurs[i], ['id','uid','profile_update_time']);
-				// on remplace l'objet qui se trouve dans le tableau de valeur par son tableau de valeur
-				valeurs[i] = _.values(valeurs[i]);
-				// on rappelle notre fonction avec le nouveau tableau de valeur qui est débarassé de notre objet
-				return this.contains(valeurs, value);
-				// pour améliorer la fonction il faudrait renvoyer ici juste la partie du tableau qui n'a pas déjà été parcourue
+			// on rappelle notre fonction avec le nouveau tableau de valeur qui est débarassé de notre objet
+			if (_.isObject(valeurs[i]) && this.contains(valeurs[i], value)) {
+				return true;
 			}
 		}
+
+		return false;
 		
 	},
 
 	filtrer: function(value) {
+		console.time('search');
 		var i = 0;
 		var sortedColl;
 		sortedColl = this.filter(function(item) {
-			// on élimine les clé id qui ne nous intéresse pas pour le filtre
-			item.attributes = _.omit(item.attributes, ['id','uid','profile_update_time']); 
 			// on appelle notre fonction avec le tableau de valeurs de notre ami
-			return this.contains( _.values(item.attributes), value);
+			return this.contains(item.attributes, value);
 		}, this);
+		console.timeEnd('search');
 		this.trigger('reset', sortedColl);
 		
 	},
@@ -194,4 +188,5 @@ FbApp.Friends = Backbone.Collection.extend({
 		
 
 	},
+	
 });
