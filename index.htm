@@ -105,12 +105,14 @@
     <script src="app/FriendView.js"></script>
     <script src="app/FriendsView.js"></script>
     <script src="app/Friends.js"></script>
-    <script src="app/ChartsSexModel.js"></script>
-    <script src="app/ChartsFriendCountModel.js"></script>
-    <script src="app/ChartsRelationShipModel.js"></script>
-    <script src="app/ChartsSexView.js"></script>
-    <script src="app/ChartsRelationShipView.js"></script>
-    <script src="app/ChartsFriendCountView.js"></script>
+    <script src="app/charts/ChartModel.js"></script>
+    <script src="app/charts/ChartView.js"></script>
+    <script src="app/charts/ChartsSexModel.js"></script>
+    <script src="app/charts/ChartsFriendCountModel.js"></script>
+    <script src="app/charts/ChartsRelationShipModel.js"></script>
+    <script src="app/charts/ChartsSexView.js"></script>
+    <script src="app/charts/ChartsRelationShipView.js"></script>
+    <script src="app/charts/ChartsFriendCountView.js"></script>
 
     <script src="app/AppView.js"></script>
     <script type="text/javascript">
@@ -119,9 +121,9 @@
         var myFriends = new FbApp.Friends();
 
         // model par charts
-        var myChartSex = new FbApp.ChartsSexModel();
-        var myChartFriendCount = new FbApp.ChartsFriendCountModel();
-        var myChartRelationShip = new FbApp.ChartsRelationShipModel();
+        var myChartSex = new FbApp.ChartsSexModel({collection:myFriends});
+        var myChartFriendCount = new FbApp.ChartsFriendCountModel({collection:myFriends});
+        var myChartRelationShip = new FbApp.ChartsRelationShipModel({collection:myFriends});
 
         var myApp = new AppView({
           collection : myFriends,

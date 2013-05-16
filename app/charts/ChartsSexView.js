@@ -1,3 +1,3 @@
-FbApp.ChartsSexView = FbApp.ChartView.View.extend({
+FbApp.ChartsSexView = FbApp.ChartView.extend({
 
 });

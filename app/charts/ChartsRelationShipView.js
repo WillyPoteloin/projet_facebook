@@ -1,3 +1,3 @@
-FbApp.ChartsRelationShipView = FbApp.ChartView.View.extend({
+FbApp.ChartsRelationShipView = FbApp.ChartView.extend({
 
 });

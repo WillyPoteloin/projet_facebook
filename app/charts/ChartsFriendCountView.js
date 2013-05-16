@@ -1,3 +1,3 @@
-FbApp.ChartsFriendCountView = FbApp.ChartView.View.extend({
+FbApp.ChartsFriendCountView = FbApp.ChartView.extend({
 
 });
