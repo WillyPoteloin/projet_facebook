@@ -9,7 +9,6 @@
 
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="js/amcharts/style.css">
     <style type="text/css">
       body {
         padding-top: 40px;
@@ -56,12 +55,11 @@
       <div class="app row">
         <div class="span12">
           <h2 class="app-heading">Facebook Graph Application</h2>
-          <div class="chartdiv" id="relation"></div><div class="chartdiv" id="age"></div>
+          <div class="chartdiv" id="sex"></div><div class="chartdiv" id="relation"></div><div class="chartdiv" id="friendCount"></div>
           <div class="span12 app-toolbar">
             <input id="filtrer" type="text" size="65" placeholder="Filtrer votre liste d'ami(e)s..."/>
           </div>
           <div class="span12 app-toolbar btn-group">
-            <button class="btn" id="stats">Analyser les données de mes ami(e)s</button>
             <button class="btn" id="byName">Sort by name</button>
             <button class="btn" id="byBirthday">Sort by birthday</button>
           </div>
@@ -88,8 +86,8 @@
     </script>
 
     <script src="js/getFriends.js"></script>
-    <script src="js/amcharts/amstock.js"></script>
     <script src="js/jquery-1.9.0.js"></script>
+    <script src="js/highcharts.js"></script>
     <script src="js/charts.js"></script>
     <script src="js/bootstrap.2.2.2.js"></script>
     <script src="js/underscore.1.4.js"></script>
@@ -130,6 +128,21 @@
           el: $('.app')[0]
         });
         myFriends.reset(getFriends());
+
+        var chartSex = new FbApp.ChartsSexView({
+          chartData:myChartSex.chartData,
+          collection:myChartSex.collection
+        });
+
+        var chartRelationShip = new FbApp.ChartsRelationShipView({
+          chartData:myChartRelationShip.chartData,
+          collection:myChartRelationShip.collection
+        });
+
+        var chartFriendCount = new FbApp.ChartsFriendCountView({
+          chartData:myChartFriendCount.chartData,
+          collection:myChartFriendCount.collection
+        });
 
       })();
 

@@ -4,9 +4,12 @@ FbApp.ChartsSexModel = FbApp.ChartModel.extend({
 		var values = {};
 
 		this.collection.each(function(item) {
+			if(item.attributes['sex'] == '' || item.attributes['sex'] == undefined) {
+				item.attributes['sex'] = 'N/A';
+			}
 			values[item.attributes['sex']] ? values[item.attributes['sex']]++ : values[item.attributes['sex']] = 1;
 		});
 
-		var chartData = JSON.stringify(values);
+		this.chartData = _.pairs(values);
 	}
 });

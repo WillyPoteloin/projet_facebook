@@ -3,9 +3,12 @@ FbApp.ChartsRelationShipModel = FbApp.ChartModel.extend({
 		var values = {};
 
 		this.collection.each(function(item) {
+			if(item.attributes['relationship_status'] == '' || item.attributes['relationship_status'] == undefined) {
+				item.attributes['relationship_status'] = 'N/A';
+			}
 			values[item.attributes['relationship_status']] ? values[item.attributes['relationship_status']]++ : values[item.attributes['relationship_status']] = 1;
 		});
 
-		var chartData = JSON.stringify(values);
+		this.chartData = _.pairs(values);
 	}
 });
