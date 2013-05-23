@@ -3,7 +3,7 @@ FbApp.ChartsSexView = FbApp.ChartView.extend({
 
 		var donnees = this.chartData;
 
-		$('#sex').highcharts({
+		$(this.$el).highcharts({
 
 			chart: {
 				plotBackgroundColor: null,
@@ -14,22 +14,23 @@ FbApp.ChartsSexView = FbApp.ChartView.extend({
 				text: 'Répartition des sexes'
 			},
 			tooltip: {
-				pointFormat: '{series.name}: <b>{point.percentage}%</b>',
-				percentageDecimals: 1
+				valueDecimals: 0,
+				valueSuffix: '%'
 			},
 			plotOptions: {
 				pie: {
 					allowPointSelect: true,
 					cursor: 'pointer',
 					dataLabels: {
-						enabled: true
+						enabled: true,
+						format: '{point.name}: <b>{y}%</b>'
 					},
 					showInLegend: true
 				}
 			},
 			series: [{
 				type: 'pie',
-				name: 'Browser share',
+				name: 'Répartition des sexes',
 				data: donnees
 			}]
 		});

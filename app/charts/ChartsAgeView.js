@@ -1,4 +1,4 @@
-FbApp.ChartsRelationShipView = FbApp.ChartView.extend({
+FbApp.ChartsAgeView = FbApp.ChartView.extend({
 	renderData : function() {
 
 		var donnees = this.chartData;
@@ -11,7 +11,7 @@ FbApp.ChartsRelationShipView = FbApp.ChartView.extend({
 				plotShadow: false
 			},
 			title: {
-				text: 'Status relationel'
+				text: 'Age'
 			},
 			tooltip: {
 				valueDecimals: 0,
@@ -30,7 +30,7 @@ FbApp.ChartsRelationShipView = FbApp.ChartView.extend({
 			},
 			series: [{
 				type: 'pie',
-				name: 'Status relationel',
+				name: 'répartiton des ages',
 				data: donnees
 			}]
 		});

@@ -55,7 +55,7 @@
       <div class="app row">
         <div class="span12">
           <h2 class="app-heading">Facebook Graph Application</h2>
-          <div class="chartdiv" id="sex"></div><div class="chartdiv" id="relation"></div><div class="chartdiv" id="friendCount"></div>
+          <div class="chartdiv" id="sex"></div><div class="chartdiv" id="relation"></div><div class="chartdiv" id="age"></div>
           <div class="span12 app-toolbar">
             <input id="filtrer" type="text" size="65" placeholder="Filtrer votre liste d'ami(e)s..."/>
           </div>
@@ -106,11 +106,11 @@
     <script src="app/charts/ChartModel.js"></script>
     <script src="app/charts/ChartView.js"></script>
     <script src="app/charts/ChartsSexModel.js"></script>
-    <script src="app/charts/ChartsFriendCountModel.js"></script>
+    <script src="app/charts/ChartsAgeModel.js"></script>
     <script src="app/charts/ChartsRelationShipModel.js"></script>
     <script src="app/charts/ChartsSexView.js"></script>
     <script src="app/charts/ChartsRelationShipView.js"></script>
-    <script src="app/charts/ChartsFriendCountView.js"></script>
+    <script src="app/charts/ChartsAgeView.js"></script>
 
     <script src="app/AppView.js"></script>
     <script type="text/javascript">
@@ -119,9 +119,18 @@
         var myFriends = new FbApp.Friends();
 
         // model par charts
-        var myChartSex = new FbApp.ChartsSexModel({collection:myFriends});
-        var myChartFriendCount = new FbApp.ChartsFriendCountModel({collection:myFriends});
-        var myChartRelationShip = new FbApp.ChartsRelationShipModel({collection:myFriends});
+        var myChartSex = new FbApp.ChartsSexModel({
+          collection:myFriends,
+          search:'sex'
+        });
+        var myChartAge = new FbApp.ChartsAgeModel({
+          collection:myFriends,
+          search:'birthday_date'
+        });
+        var myChartRelationShip = new FbApp.ChartsRelationShipModel({
+          collection:myFriends,
+          search:'relationship_status'
+        });
 
         var myApp = new AppView({
           collection : myFriends,
@@ -131,17 +140,20 @@
 
         var chartSex = new FbApp.ChartsSexView({
           chartData:myChartSex.chartData,
-          collection:myChartSex.collection
+          collection:myChartSex.collection,
+          el: $('#sex')[0]
         });
 
         var chartRelationShip = new FbApp.ChartsRelationShipView({
           chartData:myChartRelationShip.chartData,
-          collection:myChartRelationShip.collection
+          collection:myChartRelationShip.collection,
+          el: $('#relation')[0]
         });
 
-        var chartFriendCount = new FbApp.ChartsFriendCountView({
-          chartData:myChartFriendCount.chartData,
-          collection:myChartFriendCount.collection
+        var chartAge = new FbApp.ChartsAgeView({
+          chartData:myChartAge.chartData,
+          collection:myChartAge.collection,
+          el: $('#age')[0]
         });
 
       })();
