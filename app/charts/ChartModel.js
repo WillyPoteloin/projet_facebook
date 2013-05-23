@@ -11,12 +11,12 @@ FbApp.ChartModel = Backbone.Model.extend({
 
 	processData : function() {
 		var values = {};
-
+		var recherche = this.search;
 		this.collection.each(function(item) {
-			if(item.attributes[this.search] == '' || item.attributes[this.search] == undefined) {
-				item.attributes[this.search] = 'N/A';
+			if(item.attributes[recherche] == '' || item.attributes[recherche] == undefined) {
+				item.attributes[recherche] = 'N/A';
 			}
-			values[item.attributes[this.search]] ? values[item.attributes[this.search]]++ : values[item.attributes[this.search]] = 1;
+			values[item.attributes[recherche]] ? values[item.attributes[recherche]]++ : values[item.attributes[recherche]] = 1;
 		});
 
 		this.chartData = _.pairs(values);

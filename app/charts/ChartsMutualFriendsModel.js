@@ -1,0 +1,1 @@
+FbApp.ChartsMutualFriendsModel = FbApp.ChartModel.extend({});

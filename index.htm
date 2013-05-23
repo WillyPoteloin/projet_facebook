@@ -55,7 +55,7 @@
       <div class="app row">
         <div class="span12">
           <h2 class="app-heading">Facebook Graph Application</h2>
-          <div class="chartdiv" id="sex"></div><div class="chartdiv" id="relation"></div><div class="chartdiv" id="age"></div>
+          <div class="chartdiv" id="sex"></div><div class="chartdiv" id="relation"></div><div class="chartdiv" id="age"></div><div class="chartdiv" id="mutual"></div>
           <div class="span12 app-toolbar">
             <input id="filtrer" type="text" size="65" placeholder="Filtrer votre liste d'ami(e)s..."/>
           </div>
@@ -107,10 +107,12 @@
     <script src="app/charts/ChartView.js"></script>
     <script src="app/charts/ChartsSexModel.js"></script>
     <script src="app/charts/ChartsAgeModel.js"></script>
+    <script src="app/charts/ChartsMutualFriendsModel.js"></script>
     <script src="app/charts/ChartsRelationShipModel.js"></script>
     <script src="app/charts/ChartsSexView.js"></script>
     <script src="app/charts/ChartsRelationShipView.js"></script>
     <script src="app/charts/ChartsAgeView.js"></script>
+    <script src="app/charts/ChartsMutualFriendsView.js"></script>
 
     <script src="app/AppView.js"></script>
     <script type="text/javascript">
@@ -130,6 +132,10 @@
         var myChartRelationShip = new FbApp.ChartsRelationShipModel({
           collection:myFriends,
           search:'relationship_status'
+        });
+        var myChartMutualFriends = new FbApp.ChartsMutualFriendsModel({
+          collection:myFriends,
+          search:'mutual_friend_count'
         });
 
         var myApp = new AppView({
@@ -154,6 +160,12 @@
           chartData:myChartAge.chartData,
           collection:myChartAge.collection,
           el: $('#age')[0]
+        });
+
+        var chartMutualFriends = new FbApp.ChartsMutualFriendsView({
+          chartData:myChartMutualFriends.chartData,
+          collection:myChartMutualFriends.collection,
+          el: $('#mutual')[0]
         });
 
       })();
