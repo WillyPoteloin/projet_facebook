@@ -145,25 +145,25 @@
         myFriends.reset(getFriends());
 
         var chartSex = new FbApp.ChartsSexView({
-          chartData:myChartSex.chartData,
+          model:myChartSex,
           collection:myChartSex.collection,
           el: $('#sex')[0]
         });
 
         var chartRelationShip = new FbApp.ChartsRelationShipView({
-          chartData:myChartRelationShip.chartData,
+          model:myChartRelationShip,
           collection:myChartRelationShip.collection,
           el: $('#relation')[0]
         });
 
         var chartAge = new FbApp.ChartsAgeView({
-          chartData:myChartAge.chartData,
+          model:myChartAge,
           collection:myChartAge.collection,
           el: $('#age')[0]
         });
 
         var chartMutualFriends = new FbApp.ChartsMutualFriendsView({
-          chartData:myChartMutualFriends.chartData,
+          model:myChartMutualFriends,
           collection:myChartMutualFriends.collection,
           el: $('#mutual')[0]
         });

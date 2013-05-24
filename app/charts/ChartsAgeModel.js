@@ -11,7 +11,7 @@ FbApp.ChartsAgeModel = FbApp.ChartModel.extend({
 				var date = item.attributes['birthday_date'].split("/");
 
 				if(date[2] == undefined) {
-					item.attributes['birthday_date'] = 'Année non renseigné';
+					item.attributes['birthday_date'] = 'N/A';
 				}
 				else {
 					item.attributes['birthday_date'] = date[2];

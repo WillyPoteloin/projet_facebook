@@ -1,8 +1,8 @@
 FbApp.ChartsAgeView = FbApp.ChartView.extend({
-	renderData : function() {
+	render : function() {
 
-		var donnees = this.chartData;
-
+		var donnees = this.model.chartData;
+		
 		$(this.$el).highcharts({
 
 			chart: {
