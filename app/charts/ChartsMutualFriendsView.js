@@ -2,6 +2,7 @@ FbApp.ChartsMutualFriendsView = FbApp.ChartView.extend({
 	render : function() {
 
 		var donnees = this.model.chartData;
+        
 		$(this.$el).highcharts({
             chart: {
                 type: 'column'
@@ -40,5 +41,5 @@ FbApp.ChartsMutualFriendsView = FbApp.ChartView.extend({
     
             }]
         });
-	}
+    }
 });
