@@ -9,7 +9,16 @@ FbApp.Friends = Backbone.Collection.extend({
 	},
 	sortByBirthday : function() {
 		var sortedArray = this.sortBy(function(friend){
-			return Date.parse(friend.get("birthday_date"));
+			var date = new Date(3000,01,01);
+
+			if(friend.get("birthday_date") != undefined && friend.get("birthday_date") != '' && friend.get('birthday_date') != null) {
+				var tabDate = friend.get('birthday_date').split('/');
+				if(tabDate[2] != undefined) {
+					date = Date.parse(friend.get("birthday_date"));
+				}
+			}
+			
+			return date;
 		});
 
 		this.trigger('reset', sortedArray);
@@ -50,7 +59,7 @@ FbApp.Friends = Backbone.Collection.extend({
 		}, this);
 		console.timeEnd('search');
 		this.trigger('reset', sortedColl);
-		
+		return sortedColl;
 	},
 	
 });

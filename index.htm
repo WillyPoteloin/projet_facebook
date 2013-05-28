@@ -60,6 +60,7 @@
             <input id="filtrer" type="text" size="65" placeholder="Filtrer votre liste d'ami(e)s..."/>
           </div>
           <div class="span12 app-toolbar btn-group">
+            <button class="btn" id="stat">Analyser les données de mes ami(e)s</button>
             <button class="btn" id="byName">Sort by name</button>
             <button class="btn" id="byBirthday">Sort by birthday</button>
           </div>
@@ -72,7 +73,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-    <script id="friendTmpl" type="text/x-template" charset="utf-8">
+    <script id="friendsTmpl" type="text/x-template" charset="utf-8">
       <div class="media">
         <a class="pull-left">
           <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="<%= pic_big %>">
@@ -88,6 +89,7 @@
     <script src="js/getFriends.js"></script>
     <script src="js/jquery-1.9.0.js"></script>
     <script src="js/highcharts.js"></script>
+    <script src="js/amcharts.js"></script>
     <script src="js/charts.js"></script>
     <script src="js/bootstrap.2.2.2.js"></script>
     <script src="js/underscore.1.4.js"></script>
@@ -96,7 +98,7 @@
 
     <!-- on déclare un espace de nom -->
     <script>
-      var FbApp = {}; 
+      var FbApp = {};
     </script>
 
     <script src="app/Friend.js"></script>
@@ -115,61 +117,6 @@
     <script src="app/charts/ChartsMutualFriendsView.js"></script>
 
     <script src="app/AppView.js"></script>
-    <script type="text/javascript">
-      // initialisation de la vue de l'application
-      (function(){
-        var myFriends = new FbApp.Friends();
-
-        // model par charts
-        var myChartSex = new FbApp.ChartsSexModel({
-          collection:myFriends,
-          search:'sex'
-        });
-        var myChartAge = new FbApp.ChartsAgeModel({
-          collection:myFriends,
-          search:'birthday_date'
-        });
-        var myChartRelationShip = new FbApp.ChartsRelationShipModel({
-          collection:myFriends,
-          search:'relationship_status'
-        });
-        var myChartMutualFriends = new FbApp.ChartsMutualFriendsModel({
-          collection:myFriends,
-          search:'mutual_friend_count'
-        });
-
-        var myApp = new AppView({
-          collection : myFriends,
-          el: $('.app')[0]
-        });
-        myFriends.reset(getFriends());
-
-        var chartSex = new FbApp.ChartsSexView({
-          model:myChartSex,
-          collection:myChartSex.collection,
-          el: $('#sex')[0]
-        });
-
-        var chartRelationShip = new FbApp.ChartsRelationShipView({
-          model:myChartRelationShip,
-          collection:myChartRelationShip.collection,
-          el: $('#relation')[0]
-        });
-
-        var chartAge = new FbApp.ChartsAgeView({
-          model:myChartAge,
-          collection:myChartAge.collection,
-          el: $('#age')[0]
-        });
-
-        var chartMutualFriends = new FbApp.ChartsMutualFriendsView({
-          model:myChartMutualFriends,
-          collection:myChartMutualFriends.collection,
-          el: $('#mutual')[0]
-        });
-
-      })();
-
-    </script>
+    <script src="js/init.js"></script>
   </body>
 </html>

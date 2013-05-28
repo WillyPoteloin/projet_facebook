@@ -3,23 +3,25 @@ FbApp.ChartsAgeModel = FbApp.ChartModel.extend({
 		var values = {};
 
 		this.collection.each(function(item) {
-
-			if(item.attributes['birthday_date'] == '' || item.attributes['birthday_date'] == undefined || item.attributes['birthday_date'] == null) {
-				item.attributes['birthday_date'] = 'N/A';
+			var champ = item.attributes['birthday_date'];
+			if(champ == '' || champ == undefined || champ == null) {
+				champ = 'N/A';
 			}
 			else {
-				var date = item.attributes['birthday_date'].split("/");
+				var date = champ.split("/");
 
 				if(date[2] == undefined) {
-					item.attributes['birthday_date'] = 'N/A';
+					champ = 'N/A';
 				}
 				else {
-					item.attributes['birthday_date'] = date[2];
+					champ = date[2];
 				}
 			}
-			values[item.attributes['birthday_date']] ? values[item.attributes['birthday_date']]++ : values[item.attributes['birthday_date']] = 1;
+			values[champ] ? values[champ]++ : values[champ] = 1;
+
 		});
 
 		this.chartData = _.pairs(values);
+		this.trigger('change');
 	}
 });
