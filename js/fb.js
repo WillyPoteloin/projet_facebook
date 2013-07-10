@@ -1,8 +1,8 @@
  window.fbAsyncInit = function() {
     // init the FB JS SDK
     FB.init({
-      appId      : '203651863118894',                        // App ID from the app dashboard
-      channelUrl : 'poteloin.synology.me', // Channel file for x-domain comms
+      appId      : '203651863118894',                    // App ID from the app dashboard
+      channelUrl : 'http://poteloin.synology.me',               // Channel file for x-domain comms
       status     : true,                                 // Check Facebook Login status
       xfbml      : true                                  // Look for social plugins on the page
   });
