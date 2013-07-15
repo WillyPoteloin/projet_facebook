@@ -14,7 +14,7 @@
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
-      testAPI();
+      retrieveInformation();
   } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call
       // FB.login() to prompt them to do so. 
@@ -35,13 +35,6 @@
 });
 };
 
-function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Good to see you, ' + response.name + '.');
-  });
-}
-
   // Load the SDK asynchronously
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
@@ -50,3 +43,11 @@ function testAPI() {
      js.src = "js/FbSdk.js";
      fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));
+
+
+
+  function retrieveInformation() {
+    FB.api('/me', function(response) {
+      console.log('Good to see you, ' + response.name + '.');
+  });
+}
