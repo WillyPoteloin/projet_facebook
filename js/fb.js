@@ -47,7 +47,7 @@
 
 
   function retrieveInformation() {
-    FB.api('/me', function(response) {
-      console.log('Good to see you, ' + response.name + '.');
+    FB.api('me/friends?fields=name,about,birthday,gender,relationship_status,hometown,education,political,email,sports,meeting_for,mutualfriends,id&locale=fr_FR', function(response) {
+      console.log(response);
   });
 }
