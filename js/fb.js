@@ -47,7 +47,7 @@
 
 
   function retrieveInformation() {
-    FB.api('/me/',{fields: 'friends.fields(name,gender,birthday)'}, function(response) {
+    FB.api('/me/',{fields: 'friends.fields(name,gender,birthday,relationship_status,picture,first_name,last_name,username)'}, function(response) {
       console.log(response);
   });
 }
