@@ -47,7 +47,7 @@
 
 
   function retrieveInformation() {
-    FB.api('me/friends?fields=name,about,birthday,gender,relationship_status,hometown,education,political,email,sports,meeting_for,mutualfriends,id&locale=fr_FR', function(response) {
+    FB.api('/me/friends',{fields: 'name,id,location,birthday,sex,relationship_status,last_name,first_name'}, function(response) {
       console.log(response);
   });
 }
