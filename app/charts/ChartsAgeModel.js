@@ -22,6 +22,13 @@ FbApp.ChartsAgeModel = FbApp.ChartModel.extend({
 		});
 
 		this.chartData = _.pairs(values);
+
+		// on met les valeurs récupérées sur 100
+		for(var i=0;i<this.chartData.length;i++) {
+			this.chartData[i][1] = (this.chartData[i][1] * 100)/this.collection.length;
+			this.chartData[i][1] = parseFloat(this.chartData[i][1].toFixed(2));
+		}
+
 		this.trigger('change');
 	}
 });

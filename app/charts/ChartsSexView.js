@@ -14,7 +14,7 @@ FbApp.ChartsSexView = FbApp.ChartView.extend({
 				text: 'Répartition des sexes'
 			},
 			tooltip: {
-				valueDecimals: 0,
+				valueDecimals: 2,
 				valueSuffix: '%'
 			},
 			plotOptions: {

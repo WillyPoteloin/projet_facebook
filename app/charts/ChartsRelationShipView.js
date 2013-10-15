@@ -14,7 +14,7 @@ FbApp.ChartsRelationShipView = FbApp.ChartView.extend({
 				text: 'Status relationel'
 			},
 			tooltip: {
-				valueDecimals: 0,
+				valueDecimals: 2,
 				valueSuffix: '%'
 			},
 			plotOptions: {

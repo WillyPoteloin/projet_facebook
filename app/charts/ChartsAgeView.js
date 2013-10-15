@@ -14,7 +14,7 @@ FbApp.ChartsAgeView = FbApp.ChartView.extend({
 				text: 'Age'
 			},
 			tooltip: {
-				valueDecimals: 0,
+				valueDecimals: 2,
 				valueSuffix: '%'
 			},
 			plotOptions: {
@@ -23,14 +23,14 @@ FbApp.ChartsAgeView = FbApp.ChartView.extend({
 					cursor: 'pointer',
 					dataLabels: {
 						enabled: true,
-						format: '{point.name}: <b>{y}%</b>'
+						format: '{point.name}: <b>{y}%</b>',
 					},
 					showInLegend: true
 				}
 			},
 			series: [{
 				type: 'pie',
-				name: 'répartiton des ages',
+				name: 'répartition des ages',
 				data: donnees
 			}]
 		});
