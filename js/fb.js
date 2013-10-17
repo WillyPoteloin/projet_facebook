@@ -35,6 +35,12 @@ window.fbAsyncInit = function() {
             FB.login();
         }
     });
+
+    function logout() {
+      FB.logout(function(response) {
+        alert('Vous avez bien été déconnecté !');
+      });
+    }
 };
 
   // Load the SDK asynchronously
@@ -54,9 +60,5 @@ window.fbAsyncInit = function() {
     });
   }
 
-  function logout() {
-    FB.logout(function(response) {
-      alert('Vous avez bien été déconnecté !');
-    });
-  }
+  
 
