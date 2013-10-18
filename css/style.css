@@ -1,0 +1,15 @@
+.fbLogin {
+	color: transparent;
+	background-image: url('../img/fbLogin.png');
+	width: 276px;
+	height: 46px;
+	display: block;
+}
+
+.fblogout {
+	color: transparent;
+	background-image: url('../img/fbLogout.png');
+	width: 276px;
+	height: 46px;
+	display: block;
+}
