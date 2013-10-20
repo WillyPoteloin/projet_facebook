@@ -1,5 +1,5 @@
 .fbLogin {
-	color: transparent;
+	text-indent: -9999px;
 	background-image: url('../img/fbLogin.png');
 	width: 276px;
 	height: 46px;
@@ -7,7 +7,7 @@
 }
 
 .fblogout {
-	color: transparent;
+	text-indent: -9999px;
 	background-image: url('../img/fbLogout.png');
 	width: 276px;
 	height: 46px;

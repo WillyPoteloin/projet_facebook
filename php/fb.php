@@ -6,39 +6,34 @@
 	$config = array();
 	$config['appId'] = '203651863118894';
 	$config['secret'] = '501d2e20cbd373bd0337f7d5cfdee499';
-	$config['cookie'] = false;
+	$config['cookie'] = true;
 
 	// on instancie l'objet facebook
 	$facebook = new Facebook($config);
 
-	// on récupère les url de connexion et de deconnexion
-	$loginParams = array(
-		'redirect_uri' => 'http://localhost/projet_facebook'
-	);
-
-	$logoutParams = array(
-		'next' => 'http://localhost/projet_facebook'
-	);
-
-	$loginUrl = $facebook->getLoginUrl($loginParams);
-	$logoutUrl  = $facebook->getLogoutUrl($logoutParams);
-
-	
-	// on récupère l'utilisateur courant si il existe
+	// on regarde si un utilisateur est connecté
 	$currentUser = $facebook->getUser();
-	 
-	if($currentUser)
-	{
-	    try
-	    {
-	        $friendsProfile = $facebook->api('/me/friends/?fields=id,name,birthday,relationship_status,picture,first_name,username,last_name,mutualfriends');
+	if($currentUser) {
+		try {
+			// on récupère l'utilisateur courant si il existe
+			$currentProfile = $facebook->api('/me/?fields=id,name,picture,birthday');
+	    	$friendsProfile = $facebook->api('/me/friends/?fields=id,name,birthday,relationship_status,picture,first_name,username,last_name,mutualfriends');
 	        // var_dump($friendsProfile);
-	    }
-	    catch (FacebookApiException $e)
-	    {
-	        print_r($e);
-	        $user = null;
-	    }
+		}
+		catch (Exception $e) {
+			error_log($e);
+		}
+
+		// on prend le lien de logout
+	    $logoutParams = array(
+			'next' => 'http://localhost/projet_facebook/php/logout.php',
+		);
+
+		$logoutUrl  = $facebook->getLogoutUrl($logoutParams);
+	}
+	else {
+		$params = array('scope' => 'user_about_me,user_birthday,user_relationships,user_relationship_details,friends_about_me,friends_activities,friends_birthday,friends_education_history,friends_hometown,friends_website,read_mailbox,manage_notifications' );
+		$loginUrl = $facebook->getLoginUrl($params);
 	}
 
 ?>

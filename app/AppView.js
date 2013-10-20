@@ -36,7 +36,7 @@ var AppView = Backbone.View.extend({
 			$container.append(view.render().$el);
 		},this);
 
-		// on met le dans notre le liste de contenu du div en dehors du DOM
+		// on met les amis dans notre liste qui est dans le DOM
 		this.$friendList.html($container);
 	}
 });
