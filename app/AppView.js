@@ -31,6 +31,7 @@ var AppView = Backbone.View.extend({
 		// on declare une div en dehors du DOM pour éviter l'affichage à chaque nouveau model dans la vue
 		var $container = $('<div/>');
 		collection.forEach(function(friend){
+			console.log(friend);
 			var view = new FbApp.FriendView({model: friend});
 			// on ajoute les model d'ami dans le div en dehors du DOM
 			$container.append(view.render().$el);

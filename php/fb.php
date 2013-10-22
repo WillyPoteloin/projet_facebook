@@ -32,7 +32,7 @@
 		$logoutUrl  = $facebook->getLogoutUrl($logoutParams);
 	}
 	else {
-		$params = array('scope' => 'user_about_me,user_birthday,user_relationships,user_relationship_details,friends_about_me,friends_activities,friends_birthday,friends_education_history,friends_hometown,friends_website,read_mailbox,manage_notifications' );
+		$params = array('scope' => 'user_about_me,user_birthday,user_relationships,user_relationship_details,friends_about_me,friends_activities,friends_birthday,friends_education_history,friends_hometown,friends_website,read_mailbox' );
 		$loginUrl = $facebook->getLoginUrl($params);
 	}
 
