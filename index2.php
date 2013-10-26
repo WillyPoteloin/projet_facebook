@@ -93,24 +93,14 @@ include('php/fb.php');
     <script id="friendsTmpl" type="text/x-template" charset="utf-8">
       <div class="media">
         <a class="pull-left">
-          <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="<%= picture['data']['url'] %>">
+          <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="<%= picture %>">
         </a>
         <div class="media-body">
-          <h4 class="media-heading"><a href="http://facebook.com/<%= id %>" target="_blank"><%= first_name %> <%= last_name %></a></h4>
+          <h4 class="media-heading"><a href="<%= link %>" target="_blank"><%= first_name %> <%= last_name %></a></h4>
         </div>
-        Anniversaire : 
-        <% if(typeof(birthday) == 'undefined') { %>
-        N/A
-        <% } else { %>
-          <%= birthday %>
-        <% } %>
-        <br>
-        Status relationnel : 
-        <% if(typeof(relationship_status) == 'undefined') { %>
-        N/A
-        <% } else { %>
-          <%= relationship_status %>
-        <% } %>
+        Anniversaire : <%= birthday %><br>
+        Status Relationnel : <%= relationship_status %><br>
+        <a href="<%= website %>" target='_blank'>Site internet</a>
       </div>
     </script>
 

@@ -5,11 +5,11 @@
   // model par charts
   var myChartSex = new FbApp.ChartsSexModel({
     collection:myFriendsModif,
-    search:'sex'
+    search:'gender'
   });
   var myChartAge = new FbApp.ChartsAgeModel({
     collection:myFriendsModif,
-    search:'birthday_date'
+    search:'birthday'
   });
   var myChartRelationShip = new FbApp.ChartsRelationShipModel({
     collection:myFriendsModif,
@@ -17,7 +17,7 @@
   });
   var myChartMutualFriends = new FbApp.ChartsMutualFriendsModel({
     collection:myFriendsModif,
-    search:'mutual_friend_count'
+    search:'mutualfriends'
   });
 
   var myApp = new AppView({

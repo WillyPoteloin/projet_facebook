@@ -1,5 +1,6 @@
 <?php 
 include('php/fb.php');
+include('php/getFriends.php');
 ?>
 <html lang="fr">
 <head>
@@ -15,7 +16,7 @@ include('php/fb.php');
 
 		<a class='fbLogout' href="<?= $logoutUrl ?>">Deconnexion Facebook</a>
 
-		<?php foreach ($friendsProfile['data'] as $friend): ?>
+		<!-- <?php foreach ($friendsProfile['data'] as $friend): ?>
 			<br>
 			<img src="<?= $friend['picture']['data']['url'] ?>" alt="<?= $friend['name'] ?>"> <?= $friend['name'] ?>
 			<br>
@@ -36,7 +37,7 @@ include('php/fb.php');
 				non définie
 			<?php endif; ?>
 		
-		<?php endforeach; ?>
+		<?php endforeach; ?> -->
 
 	<?php else : ?>
 
