@@ -3,8 +3,8 @@ FbApp.ChartsAgeModel = FbApp.ChartModel.extend({
 		var values = {};
 
 		this.collection.each(function(item) {
-			var champ = item.attributes['birthday_date'];
-			if(champ == '' || champ == undefined || champ == null) {
+			var champ = item.attributes['birthday'];
+			if(champ == '' || champ == undefined || champ == null || champ == 'N/A') {
 				champ = 'N/A';
 			}
 			else {

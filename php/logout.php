@@ -13,7 +13,7 @@
 
 	$facebook->destroySession();
 
-	header('Location: http://localhost/projet_facebook/index2.php');
+	header('Location: http://localhost/projet_facebook/index.php');
 
 
 ?>

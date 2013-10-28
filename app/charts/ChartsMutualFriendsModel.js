@@ -4,7 +4,7 @@ FbApp.ChartsMutualFriendsModel = FbApp.ChartModel.extend({
 
 		this.collection.each(function(item) {
 			var name = item.attributes['first_name']+' '+item.attributes['last_name'];
-			values.push([name,parseFloat(item.attributes['mutual_friend_count'])]);
+			values.push([name,parseFloat(item.attributes['mutualfriends'])]);
 		});
 
 		this.chartData = values;

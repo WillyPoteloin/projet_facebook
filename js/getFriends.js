@@ -3,6 +3,8 @@ function getFriends () {
 	// requête ajax pour récupéré la liste des amis au format JSON
 	var friendsRequest = $.ajax({
 			url: 'php/getFriends.php',
+			// pas bien...
+			async: false,
 			type: 'post',
 			data: {},
 			success: function (data) {
@@ -16,8 +18,5 @@ function getFriends () {
 			}
 		});
 
-	// callback différé
-	return $.when(friendsRequest).done(function(){
-		return friendsRequest.responseText;
-	});
+	return JSON.parse(friendsRequest.responseText);
 }

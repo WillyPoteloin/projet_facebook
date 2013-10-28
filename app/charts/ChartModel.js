@@ -15,7 +15,7 @@ FbApp.ChartModel = Backbone.Model.extend({
 
 		this.collection.each(function(item) {
 			var champ = item.attributes[recherche];
-			if(champ == '' || champ == undefined) {
+			if(champ == '' || champ == undefined || champ == 'N/A') {
 				champ = 'N/A';
 			}
 			values[champ] ? values[champ]++ : values[champ] = 1;
