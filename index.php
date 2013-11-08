@@ -4,7 +4,7 @@ include('php/getFriends.php');
 ?>
 <html lang="fr">
 <head>
-	<title>Test SDK PHP FACEBOOK</title>
+	<title>Test SDK PHP FACEBOOK !</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
